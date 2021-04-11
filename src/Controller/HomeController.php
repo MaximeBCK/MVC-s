@@ -19,8 +19,24 @@ class HomeController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function index()
+    public function hello(): string
     {
-        return $this->twig->render('Home/index.html.twig');
+        $name = 'Twig';
+        return $this->twig->render('Home/product.html.twig', ['name' => $name]);
     }
+
+
+
+    public function showproduct()
+    {
+        $name= 'Martin';
+        return $this->twig->render('Home/product.html.twig', ['name' => $name]);
+    }
+    public function showproducts()
+        {
+            $products = ['guitare', 'bass', 'bonjo', 'cithare', 'lyre'];
+        return $this->twig->render('Home/product.html.twig', ['products' => $products]);
+
+   
+        }
 }
